@@ -1,6 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 @import './global/vars';
 @import './global/fonts';
 @import './global/reset';
 @import './global/global';
 @import './global/mixins';
 
+//blocks
+@import './blocks/header/header';
+@import './blocks/table/table';
+
+//sections
+@import './sections/table-wrapper';

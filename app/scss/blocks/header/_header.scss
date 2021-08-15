@@ -1,0 +1,26 @@
+.header {
+  @include flex-start;
+  width: 100%;
+  height: 100px;
+  padding: 1rem;
+  background: $container-color;
+  border-bottom: 2px solid $body-color;
+}
+
+.menu {
+  @include flex-start;
+  gap: 2rem;
+
+  &__item {
+    padding: 0.3125rem;
+  }
+
+  &__item-link {
+    color: $content-color;
+    font-size: 1rem;
+    text-decoration: none;
+    &--active {
+      color: $active-color;
+    }
+  }
+}

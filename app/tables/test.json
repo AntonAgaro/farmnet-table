@@ -1,0 +1,98 @@
+[
+  {
+    "branch": "Тестовая аптека, филиал № 5",
+    "operation_type": "Реализация по б.к.",
+    "createDate": "2020-01-31T23:55:39.147",
+    "sumQuantity": 1.00000,
+    "sumRoznWNDS": 892.00,
+    "posCount": 1
+  },
+  {
+    "branch": "Тестовая аптека, филиал № 5",
+    "operation_type": "Реализация по б.к.",
+    "createDate": "2020-01-31T23:54:23.807",
+    "sumQuantity": 1.00000,
+    "sumRoznWNDS": 122.00,
+    "posCount": 1
+  },
+  {
+    "branch": "Тестовая аптека, филиал № 6",
+    "operation_type": "Розничная реализация",
+    "createDate": "2020-01-31T23:50:02.403",
+    "sumQuantity": 1.00000,
+    "sumRoznWNDS": 49.00,
+    "posCount": 1
+  },
+  {
+    "branch": "Тестовая аптека, филиал № 6",
+    "operation_type": "Розничная реализация",
+    "createDate": "2020-01-31T23:47:00.607",
+    "sumQuantity": 1.00000,
+    "sumRoznWNDS": 234.00,
+    "posCount": 1
+  },
+  {
+    "branch": "Тестовая аптека, филиал № 5",
+    "operation_type": "Розничная реализация",
+    "createDate": "2020-01-31T23:30:52.883",
+    "sumQuantity": 1.00000,
+    "sumRoznWNDS": 171.00,
+    "posCount": 1
+  },
+  {
+    "branch": "Тестовая аптека, филиал № 6",
+    "operation_type": "Реализация по б.к.",
+    "createDate": "2020-01-31T23:24:31.86",
+    "sumQuantity": 1.00000,
+    "sumRoznWNDS": 97.50,
+    "posCount": 1
+  },
+  {
+    "branch": "Тестовая аптека, филиал № 6",
+    "operation_type": "Реализация по б.к.",
+    "createDate": "2020-01-31T23:21:47.157",
+    "sumQuantity": 1.00000,
+    "sumRoznWNDS": 529.00,
+    "posCount": 1
+  },
+  {
+    "branch": "Тестовая аптека, филиал № 5",
+    "operation_type": "Розничная реализация",
+    "createDate": "2020-01-31T23:20:57.427",
+    "sumQuantity": 1.00000,
+    "sumRoznWNDS": 220.00,
+    "posCount": 1
+  },
+  {
+    "branch": "Тестовая аптека, филиал № 5",
+    "operation_type": "Реализация по б.к.",
+    "createDate": "2020-01-31T23:10:23.503",
+    "sumQuantity": 1.00000,
+    "sumRoznWNDS": 361.00,
+    "posCount": 1
+  },
+  {
+    "branch": "Тестовая аптека, филиал № 5",
+    "operation_type": "Розничная реализация",
+    "createDate": "2020-01-31T23:08:22.95",
+    "sumQuantity": 1.00000,
+    "sumRoznWNDS": 40.50,
+    "posCount": 1
+  },
+  {
+    "branch": "Тестовая аптека, филиал № 5",
+    "operation_type": "Розничная реализация",
+    "createDate": "2020-01-31T23:06:02.25",
+    "sumQuantity": 1.00000,
+    "sumRoznWNDS": 76.14,
+    "posCount": 1
+  },
+  {
+    "branch": "Тестовая аптека, филиал № 6",
+    "operation_type": "Реализация по б.к.",
+    "createDate": "2020-01-31T23:04:18.167",
+    "sumQuantity": 1.00000,
+    "sumRoznWNDS": 380.00,
+    "posCount": 1
+  }
+]
