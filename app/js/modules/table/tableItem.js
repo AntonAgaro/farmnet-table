@@ -6,8 +6,9 @@ export default class TableItem {
 
   render() {
     const tableRow = document.createElement('tr');
+    const date = new Date(this.obj.createDate);
     tableRow.innerHTML = `
-        <td>${this.obj.createDate}</td>
+        <td>${date.toLocaleString()}</td>
         <td>${this.obj.branch}</td>
         <td>${this.obj.operation_type}</td>
         <td>${this.obj.posCount}</td>

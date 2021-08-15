@@ -443,7 +443,8 @@ var TableItem = /*#__PURE__*/function () {
     key: "render",
     value: function render() {
       var tableRow = document.createElement('tr');
-      tableRow.innerHTML = "\n        <td>".concat(this.obj.createDate, "</td>\n        <td>").concat(this.obj.branch, "</td>\n        <td>").concat(this.obj.operation_type, "</td>\n        <td>").concat(this.obj.posCount, "</td>\n        <td>").concat(this.obj.sumQuantity, "</td>\n        <td>").concat(this.obj.sumRoznWNDS, "</td>\n      ");
+      var date = new Date(this.obj.createDate);
+      tableRow.innerHTML = "\n        <td>".concat(date.toLocaleString(), "</td>\n        <td>").concat(this.obj.branch, "</td>\n        <td>").concat(this.obj.operation_type, "</td>\n        <td>").concat(this.obj.posCount, "</td>\n        <td>").concat(this.obj.sumQuantity, "</td>\n        <td>").concat(this.obj.sumRoznWNDS, "</td>\n      ");
       this.table.append(tableRow);
     }
   }]);
