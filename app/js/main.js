@@ -4,6 +4,7 @@ import {setTableWrapperHeight, setTableContainerHeight} from './modules/utils/ta
 import {PaginationButtons} from './modules/pagination/paginationButtons/paginationButtons';
 import calcPaginationPage from './modules/pagination/calcPaginationPage/calcPaginationPage';
 import determineRowHeight from './modules/utils/determineRowHeight/determineRowHeight';
+import Spinner from './modules/spinner/spinner';
 
 
 window.addEventListener('DOMContentLoaded', () => {
@@ -15,16 +16,17 @@ window.addEventListener('DOMContentLoaded', () => {
   };
 
   const rowHeight = determineRowHeight();
-  console.log(rowHeight);
 
   const showChecks = async () => {
+    const spinner = new Spinner('#table-container');
+    spinner.render();
+
     await fetchData('./tables/checks.json')
       .then(res => state.checks = res);
 
     const tableContainerheight = setTableContainerHeight();
     const numOfRowsFit = Math.floor((parseInt(tableContainerheight) / rowHeight) - 1);
     const numOfPages = Math.floor(state.checks.length / numOfRowsFit);
-    console.log(numOfRowsFit);
 
     const tableWrapper = document.querySelector('#table-wrapper');
     const paginationButtons = new PaginationButtons(numOfPages, numOfPages <= 5 ? numOfPages : 5);
@@ -32,6 +34,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     calcPaginationPage(state.checks, state.currentPage, numOfRowsFit);
     renderTable(calcPaginationPage(state.checks, state.currentPage, numOfRowsFit), '#table-container'); 
+    
+    spinner.remove();
 
     paginationButtons.onChange(e => {
       state.currentPage = e.currentTarget.value;

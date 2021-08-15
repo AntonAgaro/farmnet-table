@@ -109,6 +109,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _modules_pagination_paginationButtons_paginationButtons__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./modules/pagination/paginationButtons/paginationButtons */ "./app/js/modules/pagination/paginationButtons/paginationButtons.js");
 /* harmony import */ var _modules_pagination_calcPaginationPage_calcPaginationPage__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./modules/pagination/calcPaginationPage/calcPaginationPage */ "./app/js/modules/pagination/calcPaginationPage/calcPaginationPage.js");
 /* harmony import */ var _modules_utils_determineRowHeight_determineRowHeight__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./modules/utils/determineRowHeight/determineRowHeight */ "./app/js/modules/utils/determineRowHeight/determineRowHeight.js");
+/* harmony import */ var _modules_spinner_spinner__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./modules/spinner/spinner */ "./app/js/modules/spinner/spinner.js");
 
 
 
@@ -124,43 +125,45 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 
 
+
 window.addEventListener('DOMContentLoaded', function () {
   Object(_modules_utils_tableWrapperHeight_tableWrapperHeight__WEBPACK_IMPORTED_MODULE_6__["setTableWrapperHeight"])();
   var state = {
     currentPage: 1
   };
   var rowHeight = Object(_modules_utils_determineRowHeight_determineRowHeight__WEBPACK_IMPORTED_MODULE_9__["default"])();
-  console.log(rowHeight);
 
   var showChecks = /*#__PURE__*/function () {
     var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-      var tableContainerheight, numOfRowsFit, numOfPages, tableWrapper, paginationButtons;
+      var spinner, tableContainerheight, numOfRowsFit, numOfPages, tableWrapper, paginationButtons;
       return regeneratorRuntime.wrap(function _callee$(_context) {
         while (1) {
           switch (_context.prev = _context.next) {
             case 0:
-              _context.next = 2;
+              spinner = new _modules_spinner_spinner__WEBPACK_IMPORTED_MODULE_10__["default"]('#table-container');
+              spinner.render();
+              _context.next = 4;
               return Object(_modules_utils_fetchData_fetchData__WEBPACK_IMPORTED_MODULE_5__["default"])('./tables/checks.json').then(function (res) {
                 return state.checks = res;
               });
 
-            case 2:
+            case 4:
               tableContainerheight = Object(_modules_utils_tableWrapperHeight_tableWrapperHeight__WEBPACK_IMPORTED_MODULE_6__["setTableContainerHeight"])();
               numOfRowsFit = Math.floor(parseInt(tableContainerheight) / rowHeight - 1);
               numOfPages = Math.floor(state.checks.length / numOfRowsFit);
-              console.log(numOfRowsFit);
               tableWrapper = document.querySelector('#table-wrapper');
               paginationButtons = new _modules_pagination_paginationButtons_paginationButtons__WEBPACK_IMPORTED_MODULE_7__["PaginationButtons"](numOfPages, numOfPages <= 5 ? numOfPages : 5);
               paginationButtons.render(tableWrapper);
               Object(_modules_pagination_calcPaginationPage_calcPaginationPage__WEBPACK_IMPORTED_MODULE_8__["default"])(state.checks, state.currentPage, numOfRowsFit);
               Object(_modules_table_renderTable__WEBPACK_IMPORTED_MODULE_4__["default"])(Object(_modules_pagination_calcPaginationPage_calcPaginationPage__WEBPACK_IMPORTED_MODULE_8__["default"])(state.checks, state.currentPage, numOfRowsFit), '#table-container');
+              spinner.remove();
               paginationButtons.onChange(function (e) {
                 state.currentPage = e.currentTarget.value;
                 Object(_modules_pagination_calcPaginationPage_calcPaginationPage__WEBPACK_IMPORTED_MODULE_8__["default"])(state.checks, state.currentPage, numOfRowsFit);
                 Object(_modules_table_renderTable__WEBPACK_IMPORTED_MODULE_4__["default"])(Object(_modules_pagination_calcPaginationPage_calcPaginationPage__WEBPACK_IMPORTED_MODULE_8__["default"])(state.checks, state.currentPage, numOfRowsFit), '#table-container');
               });
 
-            case 12:
+            case 14:
             case "end":
               return _context.stop();
           }
@@ -371,6 +374,52 @@ function PaginationButtons(totalPages) {
     paginationButtonsContainer.addEventListener('change', handler);
   };
 }
+
+
+
+/***/ }),
+
+/***/ "./app/js/modules/spinner/spinner.js":
+/*!*******************************************!*\
+  !*** ./app/js/modules/spinner/spinner.js ***!
+  \*******************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return Spinner; });
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+
+var Spinner = /*#__PURE__*/function () {
+  function Spinner(container) {
+    _classCallCheck(this, Spinner);
+
+    this.container = document.querySelector(container);
+  }
+
+  _createClass(Spinner, [{
+    key: "render",
+    value: function render() {
+      var spinner = document.createElement('div');
+      spinner.className = 'spinner';
+      spinner.id = 'spinner';
+      spinner.innerHTML = "<div class=\"loadingio-spinner-spin-52fuiut5mue\"><div class=\"ldio-pla356f8p3\">\n    <div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div><div><div></div></div>\n    </div></div>";
+      this.container.append(spinner);
+    }
+  }, {
+    key: "remove",
+    value: function remove() {
+      this.container.querySelector('.spinner').remove();
+    }
+  }]);
+
+  return Spinner;
+}();
 
 
 
