@@ -1,0 +1,45 @@
+.pagination-buttons {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  button {
+    border: none;
+    cursor: pointer;
+  }
+}
+
+.page-btn {
+  @include flex-center;
+  background: $content-color;
+  color: $container-color;
+  height: 35px;
+  border-radius: 2px;
+  padding: 0 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  transition: background 0.3s ease;
+}
+
+.page-btn:not([class$="-page"]) {
+  min-width: 35px;
+  @media (max-width: 500px) {
+    min-width: 0;
+    padding: 1px 6px;
+  }
+}
+
+.page-btn[class$="-page"] {
+  background: #ccc;
+  font-size: 0.6em;
+  font-weight: bold;
+}
+
+.page-btn.active {
+  background: $body-color;
+  color: $content-color;
+}
+
+.page-btn[disabled] {
+  opacity: 0.3;  
+} 

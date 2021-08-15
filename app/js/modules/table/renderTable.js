@@ -6,7 +6,6 @@ const renderTable = (arr, wrapper) => {
   const table = document.createElement('table');
   table.className = 'table';
   table.innerHTML = `
-    <caption>Список чеков</caption>
     <thead>
       <tr>
         <th>Дата продажи</th>
@@ -23,7 +22,11 @@ const renderTable = (arr, wrapper) => {
     new TableItem(item, table).render();
   });
 
-  tableWrapper.append(table);
-}
+  if (document.querySelector('.table')) {
+    document.querySelector('.table').remove();
+  }
+
+  tableWrapper.prepend(table);
+};
 
 export default renderTable;
