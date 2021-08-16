@@ -12,7 +12,7 @@ window.addEventListener('DOMContentLoaded', () => {
     };
     setTableWrapperHeight();
     const rowHeight = determineRowHeight();
-    showTable('./tables/checks.json', state, rowHeight, renderCheckTable);
+    showTable('../tables/checks.json', state, rowHeight, renderCheckTable);
   }
 
   if (document.getElementById('checks-info')) {
