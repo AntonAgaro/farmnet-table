@@ -1,4 +1,4 @@
-export default class TableItem {
+export default class checkTableItem {
   constructor(obj, table) {
     this.obj = obj;
     this.table = table;

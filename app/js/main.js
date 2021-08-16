@@ -1,52 +1,29 @@
-import renderTable from './modules/table/renderTable';
-import fetchData from './modules/utils/fetchData/fetchData';
-import {setTableWrapperHeight, setTableContainerHeight} from './modules/utils/tableWrapperHeight/tableWrapperHeight';
-import {PaginationButtons} from './modules/pagination/paginationButtons/paginationButtons';
-import calcPaginationPage from './modules/pagination/calcPaginationPage/calcPaginationPage';
 import determineRowHeight from './modules/utils/determineRowHeight/determineRowHeight';
-import Spinner from './modules/spinner/spinner';
-
+import {setTableWrapperHeight} from './modules/utils/tableWrapperHeight/tableWrapperHeight';
+import showTable from './modules/showTable/showTable';
+import renderCheckTable from './modules/table/checkTable/renderCheckTable';
+import renderChecksInfoTable from './modules/table/checksInfoTable/renderChecksInfoTable';
 
 window.addEventListener('DOMContentLoaded', () => {
-
-  setTableWrapperHeight();
-
-  let state = {
-    currentPage: 1,
-  };
-
-  const rowHeight = determineRowHeight();
-
-  const showChecks = async () => {
-    const spinner = new Spinner('#table-container');
-    spinner.render();
-
-    await fetchData('./tables/checks.json')
-      .then(res => state.checks = res);
-
-    const tableContainerheight = setTableContainerHeight();
-    const numOfRowsFit = Math.floor((parseInt(tableContainerheight) / rowHeight) - 1);
-    const numOfPages = Math.floor(state.checks.length / numOfRowsFit);
-
-    const tableWrapper = document.querySelector('#table-wrapper');
-    const paginationButtons = new PaginationButtons(numOfPages, numOfPages <= 5 ? numOfPages : 5);
-    paginationButtons.render(tableWrapper);
-
-    calcPaginationPage(state.checks, state.currentPage, numOfRowsFit);
-    renderTable(calcPaginationPage(state.checks, state.currentPage, numOfRowsFit), '#table-container'); 
-    
-    spinner.remove();
-
-    paginationButtons.onChange(e => {
-      state.currentPage = e.currentTarget.value;
-      calcPaginationPage(state.checks, state.currentPage, numOfRowsFit);
-      renderTable(calcPaginationPage(state.checks, state.currentPage, numOfRowsFit), '#table-container');
-    });
   
+  if (document.getElementById('checks-page')) {
+    const state = {
+      currentPage: 1,
+    };
+    setTableWrapperHeight();
+    const rowHeight = determineRowHeight();
+    showTable('./tables/checks.json', state, rowHeight, renderCheckTable);
+  }
 
-  };
-
-  showChecks();
+  if (document.getElementById('checks-info')) {
+    const state = {
+      currentPage: 1,
+    };
+    setTableWrapperHeight();
+    const rowHeight = determineRowHeight();
+    showTable('../tables/check_info.json', state, rowHeight, renderChecksInfoTable);
+  }
+  
   
   
 

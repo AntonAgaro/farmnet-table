@@ -1,6 +1,6 @@
-import TableItem from "./tableItem";
+import checkTableItem from "./checkTableItem";
 
-const renderTable = (arr, wrapper) => {
+const renderCheckTable = (arr, wrapper) => {
   const tableWrapper = document.querySelector(wrapper);
 
   const table = document.createElement('table');
@@ -18,8 +18,8 @@ const renderTable = (arr, wrapper) => {
     </thead>
   `;
 
-  arr.forEach( (item, index) => {
-    new TableItem(item, table).render();
+  arr.forEach( (item) => {
+    new checkTableItem(item, table).render();
   });
 
   if (document.querySelector('.table')) {
@@ -29,4 +29,4 @@ const renderTable = (arr, wrapper) => {
   tableWrapper.prepend(table);
 };
 
-export default renderTable;
+export default renderCheckTable;
