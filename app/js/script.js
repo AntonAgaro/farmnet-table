@@ -112,7 +112,7 @@ window.addEventListener('DOMContentLoaded', function () {
     };
     Object(_modules_utils_tableWrapperHeight_tableWrapperHeight__WEBPACK_IMPORTED_MODULE_1__["setTableWrapperHeight"])();
     var rowHeight = Object(_modules_utils_determineRowHeight_determineRowHeight__WEBPACK_IMPORTED_MODULE_0__["default"])();
-    Object(_modules_showTable_showTable__WEBPACK_IMPORTED_MODULE_2__["default"])('../tables/checks.json', state, rowHeight, _modules_table_checkTable_renderCheckTable__WEBPACK_IMPORTED_MODULE_3__["default"]);
+    Object(_modules_showTable_showTable__WEBPACK_IMPORTED_MODULE_2__["default"])('./tables/checks.json', state, rowHeight, _modules_table_checkTable_renderCheckTable__WEBPACK_IMPORTED_MODULE_3__["default"]);
   }
 
   if (document.getElementById('checks-info')) {
